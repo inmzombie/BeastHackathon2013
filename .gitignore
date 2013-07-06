@@ -1,3 +1,4 @@
+/app/config/parameters.yml
 /web/bundles/
 /app/bootstrap*
 /app/cache/*
@@ -5,5 +6,6 @@
 /vendor/*
 /web/uploads/*
 /nbproject/private/
+/composer.lock
 /*.php~
 /*.swp
