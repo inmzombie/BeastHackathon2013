@@ -1,0 +1,7 @@
+parameters:
+#    embarcacion_embarcacion.example.class: embarcacion\EmbarcacionBundle\Example
+
+services:
+#    embarcacion_embarcacion.example:
+#        class: %embarcacion_embarcacion.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

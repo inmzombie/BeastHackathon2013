@@ -1,0 +1,105 @@
+{% block collection_widget %}
+{% spaceless %}
+    {% if prototype is defined %}
+        {% set child = prototype %}
+        {% set attr = attr|merge({'data-prototype': block('collection_widget_row'), 'class': attr.class|default('') ~ ' ' }) %}
+    {% endif %}
+    <div {{ block('widget_container_attributes') }}>
+        {{ form_errors(form) }}
+        {% for child in form %}
+            {{ block('collection_widget_row') }}
+        {% endfor %}
+        {{ form_rest(form) }}
+        {% if allow_add %}
+            <div><a href="#" class="btn sonata-collection-add"><i class="icon-plus"></i></a></div>
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endblock collection_widget %}
+
+{% block collection_widget_row %}
+{% spaceless %}
+    <div class="sonata-collection-row">
+        <br>
+        {% if allow_delete %}
+            <a href="#" class="btn sonata-collection-delete"><i class="icon-remove"></i></a>
+            <br>
+            <br>
+        {% endif %}
+            {{ form_errors(child) }}
+            {{ form_widget(child) }}
+    </div>
+{% endspaceless %}
+{% endblock %}
+
+{% block field_row %}
+    {% if sonata_admin is not defined or not sonata_admin_enabled or not sonata_admin.field_description %}
+        <div class="control-group {% if errors|length > 0%} error{% endif %}">
+            <br>
+            {{ form_label(form, label|default(null)) }}
+                <br>
+            <div>
+                {{ form_widget(form) }}
+                {% if errors|length > 0 %}
+                    <div class="help-inline sonata-ba-field-error-messages">
+                        {{ form_errors(form) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+        <div class="control-group{% if errors|length > 0%} error{%endif%}" id="sonata-ba-field-container-{{ id }}">
+            {% block label %}
+                {% if sonata_admin.field_description.options.name is defined %}
+                    {{ form_label(form, sonata_admin.field_description.options.name, { 'attr' : {'class' : 'control-label'} }) }}
+                {% else %}
+                    {{ form_label(form, label|default(null), { 'attr' : {'class' : 'control-label'} }) }}
+                {% endif %}
+            {% endblock %}
+
+            <div class="sonata-ba-field sonata-ba-field-{{ sonata_admin.edit }}-{{ sonata_admin.inline }} {% if errors|length > 0 %}sonata-ba-field-error{% endif %}">
+
+                {{ form_widget(form) }}
+
+                {% if errors|length > 0 %}
+                    <div class="help-inline sonata-ba-field-error-messages">
+                        {{ form_errors(form) }}
+                    </div>
+                {% endif %}
+
+                {% if sonata_admin.field_description.help %}
+                    <span class="help-block sonata-ba-field-help">{{ sonata_admin.admin.trans(sonata_admin.field_description.help)|raw }}</span>
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock field_row %}
+{# responsive redifinition #}
+{% block form_rows %}
+{% spaceless %}
+{% set quantity = form | length %}
+    <div class="row-fluid">
+      <div class="span12" >    
+        {% for child in form %}
+        {% if not (loop.index is divisibleby(3)) %} 
+        <div class="span4" >
+	      {{ form_row(child) }}
+        </div>
+        {% else %}
+        <div class="span4" >
+	      {{ form_row(child) }}
+        </div>
+
+        </div>
+        </div> 
+        {% if quantity != loop.index %}
+	   <div class="row-fluid">
+           <div class="span12" >    
+        {% endif %}
+        {% endif %}
+
+        {% endfor %}
+        </div>
+      </div>
+     {% endspaceless %}
+{% endblock form_rows %}

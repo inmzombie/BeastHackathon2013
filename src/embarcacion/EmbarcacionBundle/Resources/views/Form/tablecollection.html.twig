@@ -1,0 +1,73 @@
+{% use "form_div_layout.html.twig" %}
+{% block collection_widget %}
+{% spaceless %}
+    {% if prototype is defined %}
+        {% set child = prototype %}
+        {% set attr = attr|merge({'data-prototype': block('collection_widget_row'), 'class': attr.class|default('') ~ ' controls' }) %}
+    {% endif %}
+    <div {{ block('widget_container_attributes') }}>
+        {{ form_errors(form) }}
+        {% for child in form %}
+            {{ block('collection_widget_row') }}
+        {% endfor %}
+        {{ form_rest(form) }}
+        {% if allow_add %}
+            <div><a href="#" class="btn sonata-collection-add"><i class="icon-plus"></i></a></div>
+        {% endif %}
+    </div>
+{% endspaceless %}
+{% endblock collection_widget %}
+
+{% block collection_widget_row %}
+{% spaceless %}
+    <div class="sonata-collection-row">
+        {% if allow_delete %}
+            <a href="#" class="btn sonata-collection-delete"><i class="icon-remove"></i></a>
+            <br>
+            <br>
+        {% endif %}
+            {{ form_errors(child) }}
+            {{ form_widget(child) }}
+    </div>
+{% endspaceless %}
+{% endblock %}
+
+{% block form_row %}
+{% spaceless %}
+    <tr>
+        <td>
+            {{ form_label(form) }}
+        </td>
+        <td>
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+        </td>
+    </tr>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block hidden_row %}
+{% spaceless %}
+    <tr style="display: none">
+        <td colspan="2">
+            {{ form_widget(form) }}
+        </td>
+    </tr>
+{% endspaceless %}
+{% endblock hidden_row %}
+
+{% block form_widget_compound %}
+{% spaceless %}
+    <table {{ block('widget_container_attributes') }}>
+        {% if form.parent is empty and errors|length > 0 %}
+        <tr>
+            <td colspan="2">
+                {{ form_errors(form) }}
+            </td>
+        </tr>
+        {% endif %}
+        {{ block('form_rows') }}
+        {{ form_rest(form) }}
+    </table>
+{% endspaceless %}
+{% endblock form_widget_compound %}

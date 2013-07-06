@@ -1,0 +1,19 @@
+/* 
+    Document   : vialidad
+    Created on : 29/06/2013, 07:08:23
+    Author     : diego
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.box-medium{
+    width: 300px !important;
+}
+
+.box-small{
+    width: 150px !important;
+}
+
+.box-micro{
+    width: 50px !important;
+}

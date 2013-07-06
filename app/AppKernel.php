@@ -33,7 +33,7 @@ class AppKernel extends Kernel
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             //FOSJsRoutingBundle            
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
-            
+            new embarcacion\EmbarcacionBundle\embarcacionEmbarcacionBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

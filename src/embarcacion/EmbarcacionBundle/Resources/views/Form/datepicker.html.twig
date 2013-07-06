@@ -1,0 +1,58 @@
+{% block datepicker_widget %}
+{% spaceless %}
+    {% set type = type|default('text') %}
+    <input
+        id="{{ id }}_date_input" name="{{ full_name }}" {% if disabled %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if max_length %} maxlength="{{ max_length }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %}
+        {% for attrname, attrvalue in attr %}
+            {% if attrname in ['placeholder', 'title'] %}
+                {{ attrname }}="{{ attrvalue|trans({}, translation_domain) }}"
+            {% elseif (attrname == 'class') %}
+                 {#{% if attrvalue|rmzamora_has_span_class_attribute %}
+                     {{attrname}}="{{ attrvalue|rmzamora_remove_span_class_attribute }}"
+                 {% else %}#}
+                     {{ attrname }}="{{ attrvalue }}"
+                 {#{% endif %}#}
+            {% else %}
+                {{ attrname }}="{{ attrvalue }}"
+            {% endif %}
+        {% endfor %}
+        readonly="readonly" type="text" value="{{ value }}"/><span class="add-on"><i class="icon-calendar"></i></span>
+    <a href="#" onclick="bootstrap_datepicker.clear($('#{{ id }}_date_input')); return false;"
+                class="sonata-ba-action btn btn-primary" title="Clear">
+                Clear
+    </a>
+{% endspaceless %}
+{% endblock datepicker_widget %}
+
+
+{% block datepicker_attributes %}
+{% spaceless %}
+    id="{{ id }}" name="{{ full_name }}"{% if read_only %} disabled="disabled"{% endif %}{% if required %} required="required"{% endif %}{% if max_length %} maxlength="{{ max_length }}"{% endif %}{% if pattern %} pattern="{{ pattern }}"{% endif %}
+    {% for attrname,attrvalue in attr %}{{attrname}}="{{attrvalue}}" {% endfor %}
+{% endspaceless %}
+{% endblock datepicker_attributes %}
+
+
+{% block bootstrap_datepicker_widget %}
+{% spaceless %}
+{% if datepicker_type == 'datetimepicker' %}
+<div class="input-append date" id="{{ id }}" data-date-format="{{ datepicker_format }}">
+{{ block('datepicker_widget') }}
+</div>
+{% else %}
+<div class="input-append date" id="{{ id }}" data-date-format="{{ datepicker_format }}">
+    {{ block('datepicker_widget') }}
+</div>
+{% endif %}
+<script>
+  jQuery(function() {
+    jQuery( "#{{ id }}" ).datepicker({
+        dateFormat: '{{ datepicker_format }}',{% if datepicker_start_date != '' %}startDate: '{{ datepicker_start_date }}',{% endif %}{% if datepicker_end_date != '' %}endDate: '{{ datepicker_end_date }}',{% endif %}{% if datepicker_show_on != '' %}showOn: {{ datepicker_show_on }},{% endif %}{% if datepicker_autoclose != '' %}autoclose: {{ datepicker_autoclose }},{% endif %}{% if datepicker_start_view != '' %}startView: '{{ datepicker_start_view }}',{% endif %}{% if datepicker_week_start != '' %}weekStart: {{ datepicker_week_start }},{% endif %}});
+  });
+</script>
+{% endspaceless %}
+{% endblock bootstrap_datepicker_widget %}
+
+
+
+
