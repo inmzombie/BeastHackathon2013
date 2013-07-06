@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+  Servername   hackathon.local
+  DocumentRoot "/var/www/BeastHackathon2013/web"
+  DirectoryIndex app.php
+  <Directory "/var/www/BeastHackathon2013/web">
+    AllowOverride All
+    Allow from All
+  </Directory>
+</VirtualHost>
