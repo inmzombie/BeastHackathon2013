@@ -1,7 +1,25 @@
 parameters:
 #    embarcacion_embarcacion.example.class: embarcacion\EmbarcacionBundle\Example
+    embarcacionbundle.class: embarcacion\EmbarcacionBundle\Admin\EmbarcacionAdmin 
+    tramo.class: embarcacion\EmbarcacionBundle\Admin\TramoAdmin
 
 services:
-#    embarcacion_embarcacion.example:
-#        class: %embarcacion_embarcacion.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+    embarcacion.admin:
+        class: %embarcacionbundle.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'embarcacion', label: "Embarcación" }
+        arguments: 
+            - null
+            - embarcacion\EmbarcacionBundle\Entity\Embarcacion 
+            - SonataAdminBundle:CRUD
+    tramo.admin:
+        class: %tramo.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'embarcacion', label: "Tramo" }
+        arguments: 
+            - null
+            - embarcacion\EmbarcacionBundle\Entity\Tramo
+            - SonataAdminBundle:CRUD
+           
+                
+

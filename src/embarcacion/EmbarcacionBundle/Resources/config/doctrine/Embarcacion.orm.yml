@@ -1,6 +1,6 @@
 embarcacion\EmbarcacionBundle\Entity\Embarcacion:
     type: entity
-    table: null
+    table: embarcacion
     fields:
         id:
             type: integer
@@ -18,4 +18,17 @@ embarcacion\EmbarcacionBundle\Entity\Embarcacion:
         propietario:
             type: string
             length: 255
+    oneToOne:
+        tramo:
+            targetEntity: Tramo
+            cascade:
+              - persist
+              - remove
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                tramo_id:
+                    referencedColumnName: id    
+                    onDelete: CASCADE               
+            orphanRemoval: true
     lifecycleCallbacks: {  }

@@ -4,7 +4,7 @@ parameters:
     database_port:     ~
     database_name:     hackathon
     database_user:     root
-    database_password: ~
+    database_password: dgbkof
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
