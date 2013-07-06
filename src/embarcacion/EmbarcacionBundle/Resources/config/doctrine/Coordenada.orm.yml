@@ -1,0 +1,16 @@
+embarcacion\EmbarcacionBundle\Entity\Coordenada:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        coordX:
+            type: float
+            column: coord_x
+        coordY:
+            type: float
+            column: coord_y
+    lifecycleCallbacks: {  }

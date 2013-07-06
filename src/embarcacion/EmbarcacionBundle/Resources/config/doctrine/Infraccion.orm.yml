@@ -1,0 +1,21 @@
+embarcacion\EmbarcacionBundle\Entity\Infraccion:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        createdBy:
+            type: string
+            length: 255
+        fecha:
+            type: datetime
+        multa:
+            type: string
+            length: 255
+        registro:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

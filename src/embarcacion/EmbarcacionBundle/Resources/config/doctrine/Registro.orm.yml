@@ -1,0 +1,31 @@
+embarcacion\EmbarcacionBundle\Entity\Registro:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        tipo:
+            type: string
+            length: 255
+        fecha:
+            type: datetime
+        fechaHasta:
+            type: datetime
+            column: fecha_hasta
+        anterior:
+            type: string
+            length: 255
+        createdBy:
+            type: string
+            length: 255
+            column: created_by
+        embarcacion:
+            type: string
+            length: 255
+        tramo:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

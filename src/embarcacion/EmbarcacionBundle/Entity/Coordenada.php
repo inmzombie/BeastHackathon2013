@@ -1,0 +1,83 @@
+<?php
+
+namespace embarcacion\EmbarcacionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Coordenada
+ */
+class Coordenada
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var float
+     */
+    private $coordX;
+
+    /**
+     * @var float
+     */
+    private $coordY;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set coordX
+     *
+     * @param float $coordX
+     * @return Coordenada
+     */
+    public function setCoordX($coordX)
+    {
+        $this->coordX = $coordX;
+    
+        return $this;
+    }
+
+    /**
+     * Get coordX
+     *
+     * @return float 
+     */
+    public function getCoordX()
+    {
+        return $this->coordX;
+    }
+
+    /**
+     * Set coordY
+     *
+     * @param float $coordY
+     * @return Coordenada
+     */
+    public function setCoordY($coordY)
+    {
+        $this->coordY = $coordY;
+    
+        return $this;
+    }
+
+    /**
+     * Get coordY
+     *
+     * @return float 
+     */
+    public function getCoordY()
+    {
+        return $this->coordY;
+    }
+}

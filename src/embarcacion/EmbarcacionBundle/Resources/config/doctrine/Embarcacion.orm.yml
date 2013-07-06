@@ -1,0 +1,21 @@
+embarcacion\EmbarcacionBundle\Entity\Embarcacion:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        matricula:
+            type: string
+            length: 255
+        nombre:
+            type: string
+            length: 255
+        descripcion:
+            type: text
+        propietario:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

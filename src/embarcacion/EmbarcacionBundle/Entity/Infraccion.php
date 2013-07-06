@@ -1,0 +1,139 @@
+<?php
+
+namespace embarcacion\EmbarcacionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Infraccion
+ */
+class Infraccion
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $createdBy;
+
+    /**
+     * @var \DateTime
+     */
+    private $fecha;
+
+    /**
+     * @var string
+     */
+    private $multa;
+
+    /**
+     * @var string
+     */
+    private $registro;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param string $createdBy
+     * @return Infraccion
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return string 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     * @return Infraccion
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+    
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime 
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * Set multa
+     *
+     * @param string $multa
+     * @return Infraccion
+     */
+    public function setMulta($multa)
+    {
+        $this->multa = $multa;
+    
+        return $this;
+    }
+
+    /**
+     * Get multa
+     *
+     * @return string 
+     */
+    public function getMulta()
+    {
+        return $this->multa;
+    }
+
+    /**
+     * Set registro
+     *
+     * @param string $registro
+     * @return Infraccion
+     */
+    public function setRegistro($registro)
+    {
+        $this->registro = $registro;
+    
+        return $this;
+    }
+
+    /**
+     * Get registro
+     *
+     * @return string 
+     */
+    public function getRegistro()
+    {
+        return $this->registro;
+    }
+}

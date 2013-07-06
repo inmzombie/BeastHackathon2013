@@ -1,0 +1,223 @@
+<?php
+
+namespace embarcacion\EmbarcacionBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Registro
+ */
+class Registro
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $tipo;
+
+    /**
+     * @var \DateTime
+     */
+    private $fecha;
+
+    /**
+     * @var \DateTime
+     */
+    private $fechaHasta;
+
+    /**
+     * @var string
+     */
+    private $anterior;
+
+    /**
+     * @var string
+     */
+    private $createdBy;
+
+    /**
+     * @var string
+     */
+    private $embarcacion;
+
+    /**
+     * @var string
+     */
+    private $tramo;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set tipo
+     *
+     * @param string $tipo
+     * @return Registro
+     */
+    public function setTipo($tipo)
+    {
+        $this->tipo = $tipo;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipo
+     *
+     * @return string 
+     */
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+
+    /**
+     * Set fecha
+     *
+     * @param \DateTime $fecha
+     * @return Registro
+     */
+    public function setFecha($fecha)
+    {
+        $this->fecha = $fecha;
+    
+        return $this;
+    }
+
+    /**
+     * Get fecha
+     *
+     * @return \DateTime 
+     */
+    public function getFecha()
+    {
+        return $this->fecha;
+    }
+
+    /**
+     * Set fechaHasta
+     *
+     * @param \DateTime $fechaHasta
+     * @return Registro
+     */
+    public function setFechaHasta($fechaHasta)
+    {
+        $this->fechaHasta = $fechaHasta;
+    
+        return $this;
+    }
+
+    /**
+     * Get fechaHasta
+     *
+     * @return \DateTime 
+     */
+    public function getFechaHasta()
+    {
+        return $this->fechaHasta;
+    }
+
+    /**
+     * Set anterior
+     *
+     * @param string $anterior
+     * @return Registro
+     */
+    public function setAnterior($anterior)
+    {
+        $this->anterior = $anterior;
+    
+        return $this;
+    }
+
+    /**
+     * Get anterior
+     *
+     * @return string 
+     */
+    public function getAnterior()
+    {
+        return $this->anterior;
+    }
+
+    /**
+     * Set createdBy
+     *
+     * @param string $createdBy
+     * @return Registro
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdBy
+     *
+     * @return string 
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * Set embarcacion
+     *
+     * @param string $embarcacion
+     * @return Registro
+     */
+    public function setEmbarcacion($embarcacion)
+    {
+        $this->embarcacion = $embarcacion;
+    
+        return $this;
+    }
+
+    /**
+     * Get embarcacion
+     *
+     * @return string 
+     */
+    public function getEmbarcacion()
+    {
+        return $this->embarcacion;
+    }
+
+    /**
+     * Set tramo
+     *
+     * @param string $tramo
+     * @return Registro
+     */
+    public function setTramo($tramo)
+    {
+        $this->tramo = $tramo;
+    
+        return $this;
+    }
+
+    /**
+     * Get tramo
+     *
+     * @return string 
+     */
+    public function getTramo()
+    {
+        return $this->tramo;
+    }
+}

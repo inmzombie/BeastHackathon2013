@@ -1,0 +1,16 @@
+embarcacion\EmbarcacionBundle\Entity\Localidad:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        nombre:
+            type: string
+            length: 255
+        provincia:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

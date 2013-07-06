@@ -1,0 +1,21 @@
+embarcacion\EmbarcacionBundle\Entity\Tramo:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        nombre:
+            type: string
+            length: 255
+        coord1:
+            type: integer
+        coord2:
+            type: integer
+        coord3:
+            type: integer
+        coord4:
+            type: integer
+    lifecycleCallbacks: {  }
